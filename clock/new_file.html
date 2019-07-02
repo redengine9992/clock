@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+		.zh-circle{
+			position: relative;
+			width: 240px;
+			height: 240px;
+			border-radius: 50%;
+			border: 1px solid #f00;
+			box-sizing: border-box;
+			margin: 100px auto 0;
+			} 
+		.zh-circle li{
+			position: absolute;
+			z-index: 2;
+			left: 50%;
+			top: 0;
+			width: 40px;
+			height: 40px;
+			margin: -20px 0 0 -20px;
+			border: 1px solid #f00;
+			border-radius: 50%;
+			box-sizing: border-box;
+			list-style: none;
+			transform-origin: 20px 140px;
+			}
+	</style>
+	<body>
+		<ul class="zh-circle"></ul>
+		
+	</body>
+	<script type="text/javascript">
+		var liSize = 10,li = '';
+		var month_ = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
+		console.log(month_.length)
+		for(var i=0; i<month_.length; i++) {
+			li += '<li style="transform: rotate('+360/month_.length*i+'deg)">'+month_[i]+'</li>';
+			}
+			$('.zh-circle').html(li);</script>
+	</script>
+</html>

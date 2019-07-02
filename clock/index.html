@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/css.css"/>
+	</head>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			margin: 120px auto;
+			border-radius: 50%;
+		}
+	</style>
+	<style type="text/css">
+		
+	</style>
+	<body>
+		<!--<div class="box">
+			<ul>
+				<li>123</li>
+				<li>456</li>
+				<li>789</li>
+			</ul>
+		</div>-->
+		<div class="mepw">
+			<ul class="circle_month"></ul>
+			<ul class="circle_day"></ul>
+			<ul class="circle_week"></ul>
+			<ul class="circle_hour"></ul>
+			<ul class="circle_min"></ul>
+			<ul class="circle_s"></ul>
+			<span class="circle_year">0000</span>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$(function(){
+//			console.log(str);
+			
+			setInterval(function(){
+				
+			var dates=new Date();
+//			var dates=new Date("2019-02-02");
+			var year=dates.getFullYear();
+//			console.log("年"+year);
+			var month=dates.getMonth();
+//			console.log("月"+month);//0~11
+			var week = dates.getDay()
+			console.log(week);
+			var day=dates.getDate();
+//			console.log("日"+day);
+			var hour=dates.getHours();
+//			console.log("时"+hour);
+			var min=dates.getMinutes();
+//			console.log("分"+min);
+			var s=dates.getSeconds();
+//			console.log("秒"+s);
+// $(this).css("transform", "rotate(" + (index*10) + "deg)");
+//			$('.box').css("transform","rotate("+(s+90)*6+"deg)")
+			$('.circle_month').css("transform","rotate("+-(month*30)+"deg)")
+			$('.circle_day').css("transform","rotate("+-((day-1)*11.6)+"deg)")
+			$('.circle_week').css("transform","rotate("+-((week)*51.4)+"deg)")
+			$('.circle_hour').css("transform","rotate("+-((hour-1)*15)+"deg)")
+			$('.circle_min').css("transform","rotate("+-((min-1)*6)+"deg)")
+			$('.circle_s').css("transform","rotate("+-(s*6)+"deg)")
+			$('.circle_year').html(year)
+			$('.circle_month li,.circle_day li,.circle_week li,.circle_hour li,.circle_min li,.circle_s li').css('color','')
+			$('.circle_month li').eq(month).css('color','red')
+			$('.circle_day li').eq(day-1).css('color','red')
+			$('.circle_week li').eq(week).css('color','red')
+			$('.circle_hour li').eq(hour-1).css('color','red')
+			$('.circle_min li').eq(min-1).css('color','red')
+			$('.circle_s li').eq(0).css('background','green')
+			$('.circle_s li').eq(30).css('background','green')
+			$('.circle_s li').eq(s).css('color','red')
+			$('title').html(year+"年"+month+"月"+week_[week]+day+"日"+s)
+			
+			},1000)
+			
+			var month_ = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
+			var day_ = [
+						"一号","二号","三号","四号","五号","六号","七号","八号","九号","十号","十一号","十二号",
+						"十三号","十四号","十五号","十六号","十七号","十八号","十九号","二十号","二十一号","二十二号",
+						"二十三号","二十四号","二十五号","二十六号","二十七号","二十八号","二十九号","三十号","三十一号"	
+						];
+			//周			
+			var week_ = ["周日","周一","周二","周三","周四","周五","周六"];			
+			
+			var hour_ = ["一点","二点","三点","四点","五点","六点","七点","八点","九点","十点","十一点","十二点",
+						"十三点","十四点","十五点","十六点","十七点","十八点","十九点","二十点","二十一点","二十二点","二十三点","二十四点"
+						];
+						
+			var min_ = [
+						"一分","二分","三分","四分","五分","六分","七分","八分","九分","十分",
+						"十一分","十二分","十三分","十四分","十五分","十六分","十七分","十八分","十九分","二十分",
+						"二十一分","二十二分","二十三分","二十四分","二十五分","二十六分","二十七分","二十八分","二十九分","三十分",
+						"三十一分","三十二分","三十三分","三十四分","三十五分","三十六分","三十七分","三十八分","三十九分","四十分",
+						"四十一分","四十二分","四十三分","四十四分","四十五分","四十六分","四十七分","四十八分","四十九分","五十分",
+						"五十一分","五十二分","五十三分","五十四分","五十五分","五十六分","五十七分","五十八分","五十九分"," "
+						];			
+			var s_ = 	[
+						"一秒","二秒","三秒","四秒","五秒","六秒","七秒","八秒","九秒","十秒",
+						"十一秒","十二秒","十三秒","十四秒","十五秒","十六秒","十七秒","十八秒","十九秒","二十秒",
+						"二十一秒","二十二秒","二十三秒","二十四秒","二十五秒","二十六秒","二十七秒","二十八秒","二十九秒","三十秒",
+						"三十一秒","三十二秒","三十三秒","三十四秒","三十五秒","三十六秒","三十七秒","三十八秒","三十九秒","四十秒",
+						"四十一秒","四十二秒","四十三秒","四十四秒","四十五秒","四十六秒","四十七秒","四十八秒","四十九秒","五十秒",
+						"五十一秒","五十二秒","五十三秒","五十四秒","五十五秒","五十六秒","五十七秒","五十八秒","五十九秒","六十秒"
+						];			
+						
+			var liSize = 10;
+//			var li = '';
+			var month1 = "";
+			var day1 = "";
+			var week1 = "";
+			var hour1 = "";
+			var min1 = "";
+			var s1 = "";
+//		var month_ = ["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
+		console.log(month_.length)
+		for(var i=0; i<month_.length; i++) {
+			month1 += '<li style="transform: rotate('+360/month_.length*i+'deg)"><div>'+month_[i]+'</div> </li>';
+			}
+			$('.circle_month').html(month1);					
+		for(var i=0; i<day_.length; i++) {
+			day1 += '<li style="transform: rotate('+360/day_.length*i+'deg)"><div>'+day_[i]+'</div> </li>';
+			}
+			$('.circle_day').html(day1);
+		for(var i=0; i<week_.length; i++) {
+			week1 += '<li style="transform: rotate('+360/week_.length*i+'deg)"><div>'+week_[i]+'</div> </li>';
+			}
+			$('.circle_week').html(week1);	
+		for(var i=0; i<hour_.length; i++) {
+			hour1 += '<li style="transform: rotate('+360/hour_.length*i+'deg)"><div>'+hour_[i]+'</div> </li>';
+			}
+			$('.circle_hour').html(hour1);					
+		for(var i=0; i<min_.length; i++) {
+			min1 += '<li style="transform: rotate('+360/min_.length*i+'deg)"><div>'+min_[i]+'</div> </li>';
+			}
+			$('.circle_min').html(min1);						
+		for(var i=0; i<s_.length; i++) {
+			s1 += '<li style="transform: rotate('+360/s_.length*i+'deg)"><div>'+s_[i]+'</div> </li>';
+			}
+			$('.circle_s').html(s1);	
+		
+		})
+	</script>
+</html>
